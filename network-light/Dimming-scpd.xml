@@ -7,36 +7,24 @@
 
 <actionList>
 <action>
-<name>SetLoadLevelTarget</name>
+<name>SetLoadLevel</name>
 <argumentList>
 <argument>
-<name>newLoadlevelTarget</name>
+<name>NewLoadlevel</name>
 <direction>in</direction>
-<relatedStateVariable>LoadLevelTarget</relatedStateVariable>
+<relatedStateVariable>LoadLevel</relatedStateVariable>
 </argument>
 </argumentList>
 </action>
 
 <action>
-<name>GetLoadLevelTarget</name>
+<name>GetLoadLevel</name>
 <argumentList>
 <argument>
-<name>retLoadlevelTarget</name>
+<name>ResultLoadlevel</name>
 <direction>out</direction>
 <retval />
-<relatedStateVariable>LoadLevelTarget</relatedStateVariable>
-</argument>
-</argumentList>
-</action>
-
-<action>
-<name>GetLoadLevelStatus</name>
-<argumentList>
-<argument>
-<name>retLoadlevelStatus</name>
-<direction>out</direction>
-<retval />
-<relatedStateVariable>LoadLevelStatus</relatedStateVariable>
+<relatedStateVariable>LoadLevel</relatedStateVariable>
 </argument>
 </argumentList>
 </action>
@@ -44,18 +32,8 @@
 
 
 <serviceStateTable>
-<stateVariable sendEvents="no">
-<name>LoadLevelTarget</name>
-<dataType>ui1</dataType>
-<defaultValue>0</defaultValue>
-<allowedValueRange>
-<minimum>0</minimum>
-<maximum>100</maximum>
-</allowedValueRange>
-</stateVariable>
-
 <stateVariable sendEvents="yes">
-<name>LoadLevelStatus</name>
+<name>LoadLevel</name>
 <dataType>ui1</dataType>
 <defaultValue>0</defaultValue>
 <allowedValueRange>
