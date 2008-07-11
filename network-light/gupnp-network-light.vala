@@ -45,9 +45,9 @@ public class GUPnP.NetworkLight : RootDevice {
         Thread.init (null);
         
         try {
-            context = new GUPnP.Context (null, /* GLib.MainContext */
-                                         null, /* Host IP          */
-                                         0);   /* Host Port        */
+            context = new GUPnP.Context (null, // GLib.MainContext
+                                         null, // Host IP
+                                         0);   // Host Port
         } catch (Error err) {
             critical (err.message);
             return 1;
@@ -55,10 +55,10 @@ public class GUPnP.NetworkLight : RootDevice {
 
         print ("Running on port %u\n", context.port);
 
-        /* Host current directory */
+        // Host current directory
         context.host_path (".", "");
 
-        /* Let there be NetworkLight! */
+        // Let there be NetworkLight!
         NetworkLight light = new NetworkLight (context);
         assert (light != null);
 
@@ -70,7 +70,7 @@ public class GUPnP.NetworkLight : RootDevice {
         return 0;
     }
 
-    /* Action handlers */
+    // Action handlers
     void on_get_status (Service       service,
                         ServiceAction action) {
         action.set ("ResultStatus",
