@@ -8,9 +8,13 @@ public class GUPnP.NetworkLight : RootDevice {
     bool status;       // On/Off
     uint load_level;   // Dimming level (percentage)
 
-    construct {
+    public NetworkLight (GUPnP.Context context) {
+        this.context = context;
+        this.resource_factory = ResourceFactory.get_default ();
+        this.relative_location = "/network-light-desc.xml";
+
         Service service;
-        
+
         service = (Service) this.get_service (
                                     "urn:schemas-upnp-org:service:SwitchPower");
         assert (service != null);
@@ -18,25 +22,17 @@ public class GUPnP.NetworkLight : RootDevice {
         // Connect action handlers 
         service.action_invoked["GetStatus"] += this.on_get_status;
         service.action_invoked["SetStatus"] += this.on_set_status;
-        
+
         this.switch_power = service;
 
         service = (Service) this.get_service (
                                     "urn:schemas-upnp-org:service:Dimming");
         assert (service != null);
-        
+
         service.action_invoked["GetLoadLevel"] += this.on_get_load_level;
         service.action_invoked["SetLoadLevel"] += this.on_set_load_level;
-        
+
         this.dimming = service;
-    }
-
-    public NetworkLight (GUPnP.Context context) {
-        this.context = context;
-        this.resource_factory = ResourceFactory.get_default ();
-        this.relative_location = "/network-light-desc.xml";
-
-        this.available = true;
     }
 
     public static int main (string[] args) {
