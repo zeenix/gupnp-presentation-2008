@@ -9,6 +9,8 @@ public class GUPnP.NetworkLight : RootDevice {
     private uint load_level;   // Dimming level (percentage)
 
     public NetworkLight (GUPnP.Context context) {
+        // In very near future we'll be able to replace these three lines with:
+        // base (context, "/network-light-desc.xml");
         this.context = context;
         this.resource_factory = ResourceFactory.get_default ();
         this.relative_location = "/network-light-desc.xml";
