@@ -5,8 +5,8 @@ public class GUPnP.NetworkLight : RootDevice {
     private Service dimming;
 
     // State variables
-    bool status;       // On/Off
-    uint load_level;   // Dimming level (percentage)
+    private bool status;       // On/Off
+    private uint load_level;   // Dimming level (percentage)
 
     public NetworkLight (GUPnP.Context context) {
         this.context = context;
