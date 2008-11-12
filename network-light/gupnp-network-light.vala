@@ -40,8 +40,6 @@ public class GUPnP.NetworkLight : RootDevice {
     public static int main (string[] args) {
         GUPnP.Context context;
 
-        Thread.init (null);
-        
         try {
             context = new GUPnP.Context (null, // GLib.MainContext
                                          null, // Host IP
